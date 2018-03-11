@@ -1,5 +1,5 @@
-# -*-coding:utf-8-*-
-#########################################��ȡ�ض���ҳ�ϱ����
+# coding=utf-8
+#########################################锟斤拷取锟截讹拷锟斤拷页锟较憋拷锟斤拷锟�
 import bs4
 from bs4 import BeautifulSoup
 import re
@@ -8,23 +8,23 @@ import os
 import traceback
 
 ''''' 
-���ҳ������ 
+锟斤拷锟揭筹拷锟斤拷锟斤拷锟� 
 '''
 
 
 def getHtmlText(url):
     try:
         r = requests.get(url, timeout=30)
-        r.raise_for_status()#����״̬�Լ�������Ƿ�ɹ����������200������404�������ģ����ͻ��׳��쳣
-        r.encoding = r.apparent_encoding#r.apparent_encoding�Ǵ������з�������Ӧ�����ݱ��뷽ʽ
+        r.raise_for_status()#锟斤拷锟斤拷状态锟皆硷拷锟斤拷锟斤拷锟斤拷欠锟缴癸拷锟斤拷锟斤拷锟斤拷锟斤拷锟�200锟斤拷锟斤拷锟斤拷404锟斤拷锟斤拷锟斤拷锟侥ｏ拷锟斤拷锟酵伙拷锟阶筹拷锟届常
+        r.encoding = r.apparent_encoding#r.apparent_encoding锟角达拷锟斤拷锟斤拷锟叫凤拷锟斤拷锟斤拷锟斤拷应锟斤拷锟斤拷锟捷憋拷锟诫方式
         return r.text
 
     except:
-        return "�����쳣"
+        return "锟斤拷锟斤拷锟届常"
 
 
 '''
-���content
+锟斤拷锟絚ontent
 '''
 
 
@@ -40,7 +40,7 @@ def getImgContent(url):
 
 
 ''''' 
-���ҳ���еı�������� 
+锟斤拷锟揭筹拷锟斤拷械谋锟斤拷锟斤拷锟斤拷锟斤拷 
 '''
 
 
@@ -50,7 +50,7 @@ def getTypeUrlList(html, typeUrlList):
     for div in divs:
         a = div.find("div", attrs={"class": "num_1"}).find("a")
         title = a.attrs["title"]
-        typeUrl = a.attrs["href"]#typeUrlΪ�����������url
+        typeUrl = a.attrs["href"]#typeUrl为锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟絬rl
         typeUrlList.append((title, typeUrl))
 
 
@@ -85,7 +85,7 @@ def getImage(imgUrlDict, file_path):
                 os.mkdir(dir)
             countfile = 0
             for imgUrl in imgUrlList:
-                path = dir + "/" + imgUrl.split("/")[-1]#��[-1]��ʾ�ָ����֮��ȡ���������ұߵ� �磺abc.gif
+                path = dir + "/" + imgUrl.split("/")[-1]#锟斤拷[-1]锟斤拷示锟街革拷锟斤拷锟街拷锟饺★拷锟斤拷锟斤拷锟斤拷锟斤拷冶叩锟� 锟界：abc.gif
                 # print(path)
                 # print(imgUrl)
                 if not os.path.exists(path):
@@ -95,17 +95,17 @@ def getImage(imgUrlDict, file_path):
                         f.write(r.content)
                         f.close()
                         countfile = countfile + 1
-                        print("��ǰ�����ļ��н���{:.2f}%".format(countfile * 100 / len(imgUrlList)))
+                        print("锟斤拷前锟斤拷锟斤拷锟侥硷拷锟叫斤拷锟斤拷{:.2f}%".format(countfile * 100 / len(imgUrlList)))
             countdir = countdir + 1
-            print("�ļ��н���{:.2f}%".format(countdir * 100 / len(imgUrlDict)))
+            print("锟侥硷拷锟叫斤拷锟斤拷{:.2f}%".format(countdir * 100 / len(imgUrlDict)))
 
         except:
             print(traceback.print_exc())
-            # print("from getImage ��ȡʧ��")
+            # print("from getImage 锟斤拷取失锟斤拷")
 
 
 def main():
-    # ���´��̱����Ͳ���ȡȫ���ı����ˣ�ֻ��ȡ30ҳ����Լ300���������ı���
+    # 锟斤拷锟铰达拷锟教憋拷锟斤拷锟酵诧拷锟斤拷取全锟斤拷锟侥憋拷锟斤拷锟剿ｏ拷只锟斤拷取30页锟斤拷锟斤拷约300锟斤拷锟斤拷锟斤拷锟斤拷锟侥憋拷锟斤拷
     pages = 30
     root = "http://sc.chinaz.com/biaoqing/"  #http://sc.chinaz.com/biaoqing/
     url = "http://sc.chinaz.com/biaoqing/index.html"#http://sc.chinaz.com/biaoqing/index.html
