@@ -3,7 +3,7 @@ import cv2
 
 import numpy as np
 
-image = cv2.imread("C:\Users\lxx\Desktop\IMG_20171127_151635.jpg")
+image = cv2.imread("C:\Users\lxx\Desktop\upan.jpg")
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 

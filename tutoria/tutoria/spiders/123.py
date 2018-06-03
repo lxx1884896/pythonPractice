@@ -2,7 +2,7 @@
 from bs4 import  BeautifulSoup
 import urllib2
 import re
-import requests###############################用scrapy和xpath爬取东西并存入文件
+import requests###############################用scrapy和xpath爬取东西并存入文件(python2  project)
 import sys
 import scrapy
 import urllib
