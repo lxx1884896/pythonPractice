@@ -1,6 +1,5 @@
-#coding=utf-8
-import argparse
+import feedparser
+d=feedparser.parse('http://blog.csdn.net/lanchunhui/rss/list')
 
-parser = argparse.ArgumentParser(description='Train a Faster R-CNN network')
 
-args = parser.parse_args()
+print  d['entries']
