@@ -1,5 +1,3 @@
-import feedparser
-d=feedparser.parse('http://blog.csdn.net/lanchunhui/rss/list')
+a="4563333333333338888888888888888888888888888888888888888888888888888888"
 
-
-print  d['entries']
+print len(a)
